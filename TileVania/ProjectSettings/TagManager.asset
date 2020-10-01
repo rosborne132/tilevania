@@ -18,8 +18,8 @@ TagManager:
   - Player
   - Background
   - Emeny
-  - 
-  - 
+  - Hazards
+  - Interactables
   - 
   - 
   - 
@@ -49,6 +49,12 @@ TagManager:
     locked: 0
   - name: Emeny
     uniqueID: 159570257
+    locked: 0
+  - name: Hazards
+    uniqueID: 2841660959
+    locked: 0
+  - name: Interactables
+    uniqueID: 810399509
     locked: 0
   - name: Player
     uniqueID: 2001231197

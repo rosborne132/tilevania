@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(isAlive)
+        if (isAlive)
         {
             PlayerAbilities();
-        } 
-        
+        }
+
         return;
     }
 
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if(myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Emeny")))
+        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Emeny", "Hazards")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dying");
