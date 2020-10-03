@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    [SerializeField] int score = 0;
+
+    [SerializeField] Text livesText;
+    [SerializeField] Text scoreText;
 
     // This uses the singleton pattern. Meaning that only one 
     // session can exist at a time.
@@ -19,7 +24,8 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        livesText.text = playerLives.ToString();
+        scoreText.text = score.ToString();
     }
 
     private void TakeLife()
@@ -27,6 +33,7 @@ public class GameSession : MonoBehaviour
         playerLives--;
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        livesText.text = playerLives.ToString();
     }
 
     private void ResetGameSession()
@@ -39,5 +46,11 @@ public class GameSession : MonoBehaviour
     {
         if (playerLives > 1) { TakeLife(); }
         else { ResetGameSession(); }
+    }
+
+    public void AddToScore(int pointsToAdd)
+    {
+        score += pointsToAdd;
+        scoreText.text = score.ToString();
     }
 }
